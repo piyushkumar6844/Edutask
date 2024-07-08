@@ -1,15 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+require('dotenv').config();
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 9000;
 
 app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/')
+mongoose.connect(process.env.mongouri)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 

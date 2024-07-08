@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import AuthContext from './AuthContext';
 
 const AuthState = (props) => {
-  const host = "http://localhost:7000";
+  const host = "https://edutask-backend.onrender.com";
   const [user, setUser] = useState(null);
 
   // Login function
