@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import HomeworkContext from './HomeworkContext';
 
 const HomeworkState = (props) => {
-  const host = " http://localhost:9000";
+  const host = "https://edutask-backend.onrender.com";
   const [homeworks, setHomeworks] = useState([]);
   const [submissions, setSubmissions] = useState([]);
   const [grades, setGrades] = useState([]);
