@@ -11,7 +11,7 @@ const SubmissionSchema = new mongoose.Schema({
     },
     marks: {
         type: Number,
-        default: null
+        default: 0
     }
 });
 

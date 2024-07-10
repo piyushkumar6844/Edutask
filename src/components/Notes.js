@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import HomeworkContext from '../context/HomeworkContext';
 import AddHomework from './AddHomework';
 import { useNavigate } from 'react-router-dom';
-import Submissions from './submissions';
+//import Submissions from './submissions';
 
 const Notes = () => {
   const { homeworks, fetchHomeworks, user, submitHomework } = useContext(HomeworkContext);
@@ -46,7 +46,7 @@ const Notes = () => {
 
   return (
     <>
-      {user && user.role === 'teacher' && <Submissions />  }
+      {/* {user && user.role === 'teacher' && <Submissions />} */}
       <div className="container my-3">
         
         <div className="row">

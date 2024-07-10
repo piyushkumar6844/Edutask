@@ -9,7 +9,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("https://edutask-backend.onrender.com/api/auth/login", {
+            const response = await fetch(" http://localhost:9000/api/auth/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -38,6 +38,9 @@ const Login = () => {
             [e.target.name]: e.target.value
         });
     };
+    const handle=()=>{
+        window.location.reload();
+    };
 
     return (
         <div className="container my-5">
@@ -52,7 +55,7 @@ const Login = () => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={handleChange} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button  type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     );

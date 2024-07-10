@@ -1,21 +1,15 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import Notes from './Notes';
-///import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeworkContext from '../context/HomeworkContext';
 import Submissions from './submissions';
  const Home = () => {
+    const { user} = useContext(HomeworkContext);
 
     return (
         <div> 
- {/* <Router>
-        
-        <Routes>
-        */}
-          
-        {/* </Routes>
-      </Router> */}
-
-
-            <Notes/>
+            
+ {user && user.role === 'teacher' && <Submissions />}
+ {user && user.role === 'student' && <Notes/>}
         </div>
     )
 }

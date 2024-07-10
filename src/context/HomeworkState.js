@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import HomeworkContext from './HomeworkContext';
 
 const HomeworkState = (props) => {
-  const host = "https://edutask-backend.onrender.com";
+  const host = " http://localhost:9000";
   const [homeworks, setHomeworks] = useState([]);
   const [submissions, setSubmissions] = useState([]);
   const [grades, setGrades] = useState([]);
@@ -154,32 +154,32 @@ const submitHomework = async (homeworkId, content) => {
   
 
   // Grade a submission
-  const gradeSubmission = async (submissionId, grade) => {
+  const gradeSubmission = async (homeworkId, submissionId, marks) => {
     try {
-      const response = await fetch(`${host}/api/homework/grade/${submissionId}`, {
-        method: 'PUT',
+      const response = await fetch(`${host}/api/homework/grade/${homeworkId}`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ grade })
+        body: JSON.stringify({ submissionId, marks })
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to grade submission');
       }
-
-      const updatedSubmission = await response.json();
+  
+      const updatedHomework = await response.json();
       setSubmissions((prevSubmissions) =>
         prevSubmissions.map((submission) =>
-          submission._id === submissionId ? updatedSubmission : submission
+          submission._id === submissionId ? updatedHomework.submissions.id(submissionId) : submission
         )
       );
     } catch (error) {
       console.error('Error grading submission:', error);
     }
   };
-
+  
   // Add a new homework
   const addHomework = async (title, description, dueDate) => {
     try {

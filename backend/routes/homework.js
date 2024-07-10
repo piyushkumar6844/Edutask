@@ -140,7 +140,7 @@ router.get('/submissions/:id', userfetching(), async (req, res) => {
 
 
 // To grade a submission (teacher)
-router.post('/grade/:id', userfetching('teacher'), [
+router.post('/grade/:id', userfetching(), [
   body('submissionId', 'Submission ID is required').not().isEmpty(),
   body('marks', 'Marks should be a number').isNumeric()
 ], async (req, res) => {
