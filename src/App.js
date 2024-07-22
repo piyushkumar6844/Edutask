@@ -6,7 +6,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import HomeworkState from './context/HomeworkState';
-//import Teachernote from './components/Submissions'; // Adjust the import based on your file structure
+//import Teachernote from './components/Submissions'; 
 //import Home from './components/Home';
 // /import User from './components/User';
 
