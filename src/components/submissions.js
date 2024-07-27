@@ -83,9 +83,9 @@ const Submissions = () => {
 
     fetchAllSubmissions(); // Initial fetch
 
-    // Cleanup function to avoid memory leaks or unnecessary fetching
+    
     return () => {
-      // Optionally, you can abort ongoing fetch requests here if using fetch with AbortController
+      
     };
   }, [homeworks, fetchSubmissions]);
 
